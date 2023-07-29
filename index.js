@@ -18,8 +18,8 @@ app.use(express.static("public"));
  const result = await axios.get("https://secrets-api.appbrewery.com/random");
 
 const username = result.data.username;
-console.log(username);
- res.render("index.ejs", {user:result.data.username,secret:result.data.secret})
+const secret = result.data.secret;
+ res.render("index.ejs", {user:username,secret:secret})
    });
 
 // Use axios to get a random secret and pass it to index.ejs to display the
